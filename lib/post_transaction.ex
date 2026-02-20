@@ -11,6 +11,7 @@ defmodule Payeezy.PostTransaction do
       {:error, %{"Error" => error_map}} -> log_and_return_error(error_map)
       {:error, ":timeout"} -> {:error, %{"description" => "timeout"}}
       {:error, ":econnrefused"} -> {:error, %{"description" => "econnrefused"}}
+      {:error, ":closed"} -> {:error, %{"description" => "connection closed"}}
     end
   end
 
