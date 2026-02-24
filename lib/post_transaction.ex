@@ -11,6 +11,10 @@ defmodule Payeezy.PostTransaction do
       {:error, %{"Error" => error_map}} -> log_and_return_error(error_map)
       {:error, ":timeout"} -> {:error, %{"description" => "timeout"}}
       {:error, ":econnrefused"} -> {:error, %{"description" => "econnrefused"}}
+      {:error, ":closed"} -> {:error, %{"description" => "connection closed"}}
+      {:error, other} ->
+        Logger.warn("Unhandled Payeezy client error: #{inspect(other)}")
+        {:error, %{"description" => "unknown client error"}}
     end
   end
 
