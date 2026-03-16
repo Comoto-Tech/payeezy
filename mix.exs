@@ -1,7 +1,7 @@
 defmodule Payeezy.Mixfile do
   use Mix.Project
 
-  @version "0.1.6"
+  @version "0.1.7"
 
   def project do
     [
@@ -43,7 +43,7 @@ defmodule Payeezy.Mixfile do
 
   defp deps do
     [
-      {:poison, "~> 2.1"},
+      {:poison, "~> 3.0"},
       {:httpoison, "~> 1.1.1"},
       {:bypass, "~> 0.6.0", only: [:test, :dev]},
       {:excoveralls, "~> 0.7", only: :test},
