@@ -13,7 +13,7 @@ defmodule Payeezy.PostTransaction do
       {:error, ":econnrefused"} -> {:error, %{"description" => "econnrefused"}}
       {:error, ":closed"} -> {:error, %{"description" => "connection closed"}}
       {:error, other} ->
-        Logger.warn("Unhandled Payeezy client error: #{inspect(other)}")
+        Logger.warning("Unhandled Payeezy client error: #{inspect(other)}")
         {:error, %{"description" => "unknown client error"}}
     end
   end
