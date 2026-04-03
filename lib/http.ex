@@ -36,7 +36,8 @@ defmodule Payeezy.HTTP do
   def process_url(path) do
     endpoint = Payeezy.get_env(:endpoint)
 
-    endpoint <> "/" <> path
+    (endpoint <> "/" <> path)
+    |> String.replace_suffix("/", "")
   end
 
   @doc false
